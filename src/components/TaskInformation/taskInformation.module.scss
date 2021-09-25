@@ -1,0 +1,17 @@
+@import "../../Styles/common.scss";
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 70px;
+  padding: 10px 20px;
+  background-color: $backgroung;
+  border: 1px solid $text-first;
+  border-radius: 5px;
+  p {
+    text-align: center;
+    color: $text-first;
+    font-weight: 600;
+  }
+}
