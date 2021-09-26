@@ -1,5 +1,18 @@
+import { Fragment } from "react";
+import { HashRouter as Router } from "react-router-dom";
+import { HeaderViev } from "./vievs";
+import { MainSwitch, Spinner, TaskInformation } from "./components";
 function App() {
-  return <h1>It's My Word</h1>;
+  return (
+    <Router>
+      <HeaderViev />
+      <Fragment>
+        <MainSwitch />
+      </Fragment>
+      <TaskInformation />
+      <Spinner />
+    </Router>
+  );
 }
 
 export default App;

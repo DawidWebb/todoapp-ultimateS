@@ -1,0 +1,27 @@
+@import "../../Styles/common.scss";
+
+.headerWrapper {
+  width: 100%;
+  height: 70px;
+  padding: 10px 40px;
+  background-color: $backgroung;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    color: $text-first;
+  }
+
+  .logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.35s;
+    &:hover {
+      background-color: $worning;
+    }
+  }
+}

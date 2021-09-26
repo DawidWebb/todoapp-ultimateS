@@ -1,0 +1,62 @@
+@import "../../Styles/common.scss";
+.wrapper {
+  width: 100%;
+  min-height: calc(85vh);
+  background-color: $backgroung;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .insideBox {
+    width: 60%;
+    height: 60vh;
+    padding: 10px;
+    background-color: $box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    .backArrow {
+      align-self: flex-start;
+    }
+    h2 {
+      color: $text-first;
+      text-align: center;
+    }
+    form {
+      height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      input {
+        @include input;
+      }
+      button {
+        @include button;
+        margin-top: 20px;
+      }
+    }
+    p {
+      color: $text-second;
+    }
+    a {
+      color: $text-first;
+      text-decoration: none;
+      transition: 0.35s;
+      &:hover {
+        color: $text-second;
+      }
+    }
+  }
+  @media screen and (orientation: landscape) {
+    .insideBox {
+      height: 75vh;
+    }
+  }
+  @media screen and (min-width: map-get($breakpoints, large)) {
+    .insideBox {
+      width: 45%;
+    }
+  }
+}
