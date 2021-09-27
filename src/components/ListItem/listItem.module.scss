@@ -1,0 +1,22 @@
+@import "../../Styles/common.scss";
+.itemWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: $box;
+  color: $text-second;
+  border-radius: 5px;
+  cursor: pointer;
+  p {
+    font-size: $xs-fz/1.2;
+  }
+  .name {
+    font-weight: 700;
+  }
+  @media screen and (min-width: map-get($breakpoints, medium)) {
+    p {
+      font-size: $s-fz;
+    }
+  }
+}

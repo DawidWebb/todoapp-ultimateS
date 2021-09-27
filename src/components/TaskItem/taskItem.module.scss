@@ -1,0 +1,86 @@
+@import "../../Styles/common.scss";
+
+.taskWrapper {
+  width: 80vw;
+  form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .container {
+      display: block;
+      position: relative;
+      margin-bottom: 28px;
+      cursor: pointer;
+      font-size: 22px;
+      user-select: none;
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 15px;
+        width: 15px;
+        background-color: transparent;
+        border: 2px solid $backgroung;
+      }
+      // &:hover input ~ .checkmark {
+      //   background-color: $text-first;
+      // }
+      input:checked ~ .checkmark {
+        border-color: $isDone;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .checkmark:after {
+        left: 4px;
+        top: 0px;
+        width: 5px;
+        height: 10px;
+        border: solid $isDone;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+
+    .inputText {
+      margin-bottom: 10px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $text-first;
+      flex-basis: 90%;
+      height: 25px;
+      color: #fff;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    form {
+      input:nth-child(2) {
+        flex-basis: 95%;
+      }
+    }
+  }
+  @media screen and (min-width: map-get($breakpoints, medium)) {
+    form {
+      input:nth-child(2) {
+        flex-basis: 97%;
+      }
+    }
+  }
+}
