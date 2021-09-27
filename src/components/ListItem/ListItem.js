@@ -8,7 +8,6 @@ const ListItem = (item) => {
   const dispatch = useDispatch();
 
   const dataOfCreated = created_at.toLocaleString().slice(0, 10);
-  console.log(dataOfCreated);
 
   let numberOfCompleted = 0;
 
@@ -30,10 +29,10 @@ const ListItem = (item) => {
       <div className={styles.name}>
         <p>{name}</p>
       </div>
-      <div>
+      <div className={styles.create}>
         <p>Created at: {dataOfCreated}</p>
       </div>
-      <div>
+      <div className={styles.details}>
         <p>Completed: {numberOfCompleted}</p>
         <p>Uncompleted: {numberOfUncompleted}</p>
         <p>All: {task.length}</p>

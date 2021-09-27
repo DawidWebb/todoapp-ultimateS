@@ -17,8 +17,9 @@ const TasksListModal = () => {
   const name = !edit.data.length ? "" : edit.data[0].name;
   const id = !edit.data.length ? "" : edit.data[0].id;
 
-  const [listName, setListName] = useState();
+  const [listName, setListName] = useState("");
   const [requiredInfo, setRequiredInfo] = useState();
+
   useEffect(() => {
     setListName(name);
   }, [edit, name]);
@@ -26,7 +27,6 @@ const TasksListModal = () => {
   const dispatch = useDispatch();
 
   const handleSetListName = (e) => {
-    e.preventDefault();
     setListName(e.target.value);
   };
 
@@ -50,11 +50,12 @@ const TasksListModal = () => {
         id: id,
         jwt: login[0].jwt,
         task: tasks,
-        name: name,
+        name: listName,
       };
       dispatch(updateTasksList(tasksListEditedObj));
       dispatch(editDel());
       dispatch(clearTasksList());
+      setListName("");
     }
   };
 
@@ -65,38 +66,39 @@ const TasksListModal = () => {
   };
 
   const handleOnDelete = () => {
-    const dataObj = {
-      id: id,
-      jwt: login[0].jwt,
-    };
-    dispatch(removeTasksList(dataObj));
-    dispatch(editDel());
-    dispatch(clearTasksList());
-    setRequiredInfo();
+    if (!edit.data.length) {
+      return;
+    } else {
+      const dataObj = {
+        id: id,
+        jwt: login[0].jwt,
+      };
+      dispatch(removeTasksList(dataObj));
+      dispatch(editDel());
+      dispatch(clearTasksList());
+      setRequiredInfo();
+      setListName("");
+    }
   };
   return (
-    <Modal isModalOpen={edit.isEdit}>
+    <Modal isModalOpen={edit.isEdit} handleOnCloseModal={handleOnCloseModal}>
       <div className={styles.wrapper}>
         <div className={styles.forms}>
           <form className={styles.titleForm}>
             <input
+              onChange={handleSetListName}
               type="text"
               name="listname"
               placeholder="List name"
               value={listName}
-              onChange={handleSetListName}
             />
+
             <span>{requiredInfo}</span>
           </form>
           <TasksList />
         </div>
         <div className={styles.buttonsList}>
-          <Button type="button" name="cancel" onClick={handleOnCloseModal} />
-          {!edit.data.length ? (
-            ""
-          ) : (
-            <Button type="button" name="delete" onClick={handleOnDelete} />
-          )}
+          <Button type="button" name="cancel" onClick={handleOnDelete} />
           <Button type="button" name="save" onClick={handleOnSubbmitList} />
         </div>
       </div>

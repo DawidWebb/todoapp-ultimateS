@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   editSet,
-  getList,
+  getOneListByName,
   getTasksList,
   sortTasksList,
   reverseTasksList,
@@ -11,6 +11,7 @@ import { ListItem } from "../../components";
 import styles from "./taskPage.module.scss";
 
 const TaskPage = () => {
+  const login = useSelector((store) => store.login);
   const tasksList = useSelector((store) => store.list);
 
   const dispatch = useDispatch();
@@ -47,10 +48,21 @@ const TaskPage = () => {
 
   const handleSearchList = (e) => {
     e.preventDefault();
+
+    const idToFind = tasksList.findIndex(
+      (list) => list.name === new RegExp(listName, "i")
+    );
+
+    const dataObj = {
+      jwt: login[0].jwt,
+      id: idToFind,
+    };
     if (!listName) {
-      dispatch(getTasksList());
+      dispatch(getTasksList(dataObj.jwt));
+      return;
     } else {
-      dispatch(getList(listName));
+      // dispatch(getOneListByName(dataObj));
+      console.log(dataObj);
     }
   };
 
@@ -80,7 +92,7 @@ const TaskPage = () => {
               height="34px"
               viewBox="0 0 24 24"
               width="34px"
-              fill="rgb(216, 145, 2)"
+              fill="none"
             >
               <path d="M0 0h24v24H0z" fill="none" />
               <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />

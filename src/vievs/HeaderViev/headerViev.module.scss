@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   .logo {
     color: $text-first;
   }
@@ -16,12 +17,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
-    border-radius: 5px;
+
     cursor: pointer;
-    transition: 0.35s;
-    &:hover {
-      background-color: $worning;
+
+    div {
+      svg {
+        fill: $text-first;
+        transition: 0.4s;
+
+        &:hover {
+          fill: $text-second;
+        }
+      }
     }
   }
 }

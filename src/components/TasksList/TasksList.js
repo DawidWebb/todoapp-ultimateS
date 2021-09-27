@@ -73,8 +73,8 @@ const TasksList = () => {
           value={taskName}
           onChange={handleSetTaskName}
         />
-        <span>{requiredInfo}</span>
       </form>
+      <span>{requiredInfo}</span>
 
       <div className={styles.buttonsTask}>
         <Button type="button" name="cancel" onClick={handleDelTask} />

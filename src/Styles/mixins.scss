@@ -1,0 +1,42 @@
+@import "./variables.scss";
+
+@mixin button {
+  width: 120px;
+  height: 40px;
+  background-color: $text-first;
+  color: $text-second;
+  font-size: $s-fz;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.35s;
+  &:hover {
+    background-color: $box;
+    border: 2px solid $text-first;
+  }
+}
+@mixin smallButton {
+  width: 80px;
+  height: 25px;
+  background-color: $text-first;
+  color: $text-second;
+  font-size: $xs-fz/1.1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.35s;
+  &:hover {
+    background-color: $box;
+    border: 2px solid $text-first;
+  }
+}
+
+@mixin input {
+  width: 180px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  @media screen and (orientation: landscape) {
+    width: 260px;
+  }
+}

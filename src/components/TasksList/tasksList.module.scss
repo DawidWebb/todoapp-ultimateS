@@ -1,8 +1,11 @@
 @import "../../Styles/common.scss";
+
 .wrapper {
   width: 80vw;
 
+
   .taskForm {
+    margin-top: 20px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -16,13 +19,16 @@
       cursor: pointer;
       font-size: 22px;
       user-select: none;
+
       input {
         position: absolute;
         opacity: 0;
         cursor: pointer;
         height: 0;
         width: 0;
+
       }
+
       .checkmark {
         position: absolute;
         top: 0;
@@ -32,20 +38,24 @@
         background-color: transparent;
         border: 2px solid $backgroung;
       }
+
       // &:hover input ~ .checkmark {
       //   background-color: $text-first;
       // }
-      input:checked ~ .checkmark {
+      input:checked~.checkmark {
         border-color: $isDone;
       }
+
       .checkmark:after {
         content: "";
         position: absolute;
         display: none;
       }
-      input:checked ~ .checkmark:after {
+
+      input:checked~.checkmark:after {
         display: block;
       }
+
       .checkmark:after {
         left: 4px;
         top: 0px;
@@ -61,7 +71,6 @@
 
     .inputText {
       margin-bottom: 10px;
-      margin-left: 28px;
       background-color: transparent;
       border: none;
       border-bottom: 1px solid $text-first;
@@ -69,35 +78,43 @@
       height: 25px;
       color: #fff;
     }
-    span {
-      color: $worning;
-    }
+
   }
+
+  span {
+    color: $worning;
+  }
+
   .buttonsTask {
     flex-basis: 100%;
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
     button {
       @include smallButton;
       text-transform: uppercase;
     }
+
     button:nth-child(1) {
       margin-right: 20px;
       background-color: $worning;
     }
   }
+
   @media screen and (orientation: landscape) {
     .taskForm {
       input:nth-child(2) {
         flex-basis: 95%;
       }
+
       .inputText {
         margin-left: 25px;
       }
     }
   }
+
   @media screen and (min-width: map-get($breakpoints, medium)) {
     .taskForm {
       input:nth-child(2) {

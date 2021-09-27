@@ -1,22 +1,48 @@
 @import "../../Styles/common.scss";
+
 .itemWrapper {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin-bottom: 10px;
   padding: 5px 10px;
   background-color: $box;
   color: $text-second;
   border-radius: 5px;
   cursor: pointer;
+
+
   p {
     font-size: $xs-fz/1.2;
   }
+
   .name {
     font-weight: 700;
   }
+
+  .create {
+    font-style: italic;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+
+
+  }
+
+
   @media screen and (min-width: map-get($breakpoints, medium)) {
+    padding: 5px;
+
     p {
-      font-size: $s-fz;
+      font-size: $xs-fz;
+    }
+
+    .details {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-basis: 33%;
     }
   }
 }
