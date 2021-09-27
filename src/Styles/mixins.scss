@@ -6,15 +6,24 @@
   background-color: $text-first;
   color: $text-second;
   font-size: $s-fz;
+  font-weight: 700;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.35s;
+
   &:hover {
     background-color: $box;
     border: 2px solid $text-first;
   }
+
+  @media screen and (min-width: map-get($breakpoints, large)) {
+    width: 160px;
+    height: 50px;
+    font-size: $l-fz;
+  }
 }
+
 @mixin smallButton {
   width: 80px;
   height: 25px;
@@ -25,6 +34,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: 0.35s;
+
   &:hover {
     background-color: $box;
     border: 2px solid $text-first;
@@ -36,7 +46,13 @@
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
+  font-weight: 700;
+
   @media screen and (orientation: landscape) {
     width: 260px;
+  }
+
+  @media screen and (min-width: map-get($breakpoints, large)) {
+    width: 340px;
   }
 }

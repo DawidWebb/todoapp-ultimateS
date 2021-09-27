@@ -34,15 +34,15 @@ function Modal({ children, isModalOpen, handleOnCloseModal }) {
     };
   }, [handleOnCloseModal]);
 
-  // const handleOutsideClick = ({ target }) => {
-  //   const { current } = modalRef;
-  //   if (target === current) {
-  //     handleOnCloseModal();
-  //   }
-  // };
+  const handleOutsideClick = ({ target }) => {
+    const { current } = modalRef;
+    if (target === current) {
+      handleOnCloseModal();
+    }
+  };
 
   return createPortal(
-    <div className={styles.modal} ref={modalRef}>
+    <div className={styles.modal} ref={modalRef} onClick={handleOutsideClick}>
       <div className={styles.wrapper}>{children}</div>
     </div>,
     document.querySelector("#modal")
