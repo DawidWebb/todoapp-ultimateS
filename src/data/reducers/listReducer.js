@@ -15,11 +15,11 @@ export const listReducer = (state = [], action) => {
       return (state = action.payload);
 
     case UPDATE_TASKS_LIST:
-      // const indexListToUpdate = state.findIndex(
-      //   (list) => list.id === action.payload.id
-      // );
-      // state.splice(indexListToUpdate, 1, action.payload);
-      return (state = action.payload);
+      const indexListToUpdate = state.findIndex(
+        (list) => list.id === action.payload.id
+      );
+      state.splice(indexListToUpdate, 1, action.payload);
+      return [...state];
 
     case SORT_TASKS_LIST:
       return [...state].sort((a, b) => (a.name > b.name && 1) || -1);

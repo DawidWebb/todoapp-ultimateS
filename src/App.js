@@ -1,7 +1,12 @@
 import { Fragment } from "react";
 import { HashRouter as Router } from "react-router-dom";
 import { HeaderViev } from "./vievs";
-import { MainSwitch, Spinner, TaskInformation } from "./components";
+import {
+  MainSwitch,
+  Spinner,
+  TaskInformation,
+  TasksListModal,
+} from "./components";
 function App() {
   return (
     <Router>
@@ -9,6 +14,7 @@ function App() {
       <Fragment>
         <MainSwitch />
       </Fragment>
+      <TasksListModal />
       <TaskInformation />
       <Spinner />
     </Router>
