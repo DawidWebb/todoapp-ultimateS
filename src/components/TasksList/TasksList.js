@@ -77,8 +77,16 @@ const TasksList = () => {
       <span>{requiredInfo}</span>
 
       <div className={styles.buttonsTask}>
-        <Button type="button" name="cancel" onClick={handleDelTask} />
-        <Button type="button" name="add" onClick={handleAddTask} />
+        <div className={styles.btnWrapper}>
+          <div className={styles.left}></div>
+          <div className={styles.right}></div>
+          <Button type="button" name="cancel" onClick={handleDelTask} />
+        </div>
+        <div className={styles.btnWrapper}>
+          <div className={styles.left}></div>
+          <div className={styles.right}></div>
+          <Button type="button" name="add" onClick={handleAddTask} />
+        </div>
       </div>
     </div>
   );

@@ -46,7 +46,11 @@ const LoginPage = () => {
             placeholder="Password"
             onChange={handleSetPass}
           />
-          <Button type="submit" name="Login" />
+          <div className={styles.btnWrapper}>
+            <div className={styles.left}></div>
+            <div className={styles.right}></div>
+            <Button type="submit" name="Login"></Button>
+          </div>
         </form>
         <p>or</p>
         <Link to="/create-account">

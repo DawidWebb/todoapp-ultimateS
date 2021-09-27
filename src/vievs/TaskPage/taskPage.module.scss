@@ -45,6 +45,7 @@
         &:hover {
           border: 2px solid rgb(216, 145, 2);
           background-color: $backgroung;
+          transform: scale(200%);
         }
 
         svg {

@@ -81,7 +81,11 @@ const CreateAccountPage = () => {
             name="repeatPass"
             placeholder="Repeat password"
           />
-          <Button type="submit" name="Create" />
+          <div className={styles.btnWrapper}>
+            <div className={styles.left}></div>
+            <div className={styles.right}></div>
+            <Button type="submit" name="Create"></Button>
+          </div>
         </form>
       </div>
     </div>

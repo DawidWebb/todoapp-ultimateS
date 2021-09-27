@@ -30,6 +30,7 @@
       justify-content: space-around;
       align-items: center;
 
+
       input {
         @include input;
 
@@ -39,9 +40,58 @@
         font-weight: 200;
       }
 
-      button {
-        @include button;
+      .btnWrapper {
+        position: relative;
+        overflow: hidden;
+        width: 120;
+        height: 40px;
         margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        &:hover>.left {
+          animation: bgcAnimationLeft 1s forwards;
+
+
+        }
+
+        &:hover>.right {
+          animation: bgcAnimationRight 1s forwards;
+        }
+
+        div {
+          position: absolute;
+          width: 60px;
+          height: 40px;
+          background-color: $text-first;
+          z-index: 2;
+
+        }
+
+        .left {
+          top: 0;
+          left: 0;
+          border-top-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+
+        }
+
+        .right {
+          top: 0;
+          right: 0;
+          border-top-right-radius: $radius;
+          border-bottom-right-radius: $radius;
+
+        }
+
+        button {
+          @include button;
+          position: relative;
+          z-index: 3;
+        }
+
       }
     }
 
@@ -79,6 +129,16 @@
 
       form {
         height: 200px;
+
+        .btnWrapper {
+          width: 159px;
+          height: 50px;
+
+          div {
+            width: 80px;
+            height: 50px;
+          }
+        }
       }
 
       p {
@@ -91,5 +151,25 @@
 
       }
     }
+  }
+}
+
+@keyframes bgcAnimationLeft {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -110%;
+  }
+}
+
+@keyframes bgcAnimationRight {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: -110%;
   }
 }

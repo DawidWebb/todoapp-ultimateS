@@ -34,9 +34,7 @@ const HeaderViev = () => {
 
   return (
     <div className={styles.headerWrapper}>
-      <div className={styles.logo}>
-        <h2>AppToDo</h2>
-      </div>
+      <div className={styles.logo}></div>
       <div className={styles.logout}>{logoutViev}</div>
     </div>
   );

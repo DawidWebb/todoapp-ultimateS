@@ -10,7 +10,11 @@
   align-items: center;
 
   .logo {
-    color: $text-first;
+    width: 140px;
+    height: 40px;
+    background-image: url("../../assets/image/logo.PNG");
+    background-position: center;
+    background-size: cover;
   }
 
   .logout {
@@ -21,14 +25,31 @@
     cursor: pointer;
 
     div {
+      width: 40px;
+      height: 40px;
+
       svg {
         fill: $text-first;
-        transition: 0.4s;
+        transition: 0.5s;
+        width: 30px;
+        height: 30px;
+        transform: rotateY(180deg);
 
         &:hover {
           fill: $text-second;
+          transform: rotateY(360deg)
         }
       }
+    }
+  }
+
+  @media screen and (min-width: map-get($breakpoints, large)) {
+    .logo {
+      width: 200px;
+      height: 60px;
+      background-image: url("../../assets/image/logo.PNG");
+      background-position: center;
+      background-size: cover;
     }
   }
 }

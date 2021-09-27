@@ -38,11 +38,15 @@
         width: 15px;
         background-color: transparent;
         border: 2px solid $backgroung;
+        transition: 0.3s;
       }
 
-      // &:hover input ~ .checkmark {
-      //   background-color: $text-first;
-      // }
+      &:hover input~.checkmark {
+        background-color: $isDone;
+        border-color: $isDone;
+
+      }
+
       input:checked~.checkmark {
         border-color: $isDone;
       }

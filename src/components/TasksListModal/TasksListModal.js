@@ -5,6 +5,7 @@ import {
   clearTasksList,
   editDel,
   removeTasksList,
+  timeoutShowTask,
   updateTasksList,
 } from "../../data/actions";
 import { Button, Modal, TasksList } from "../../components";
@@ -67,6 +68,7 @@ const TasksListModal = () => {
 
   const handleOnDelete = () => {
     if (!edit.data.length) {
+      dispatch(timeoutShowTask("You haven't got list yet"));
       return;
     } else {
       const dataObj = {
@@ -98,8 +100,16 @@ const TasksListModal = () => {
           <TasksList />
         </div>
         <div className={styles.buttonsList}>
-          <Button type="button" name="cancel" onClick={handleOnDelete} />
-          <Button type="button" name="save" onClick={handleOnSubbmitList} />
+          <div className={styles.btnWrapperCancel}>
+            <div className={styles.left}></div>
+            <div className={styles.right}></div>
+            <Button type="button" name="cancel" onClick={handleOnDelete} />
+          </div>
+          <div className={styles.btnWrapperSave}>
+            <div className={styles.left}></div>
+            <div className={styles.right}></div>
+            <Button type="button" name="save" onClick={handleOnSubbmitList} />
+          </div>
         </div>
       </div>
     </Modal>

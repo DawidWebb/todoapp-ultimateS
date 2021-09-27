@@ -46,20 +46,153 @@
     justify-content: space-between;
     align-items: center;
 
-    button {
-      @include button;
-      text-transform: uppercase;
-    }
 
-    button:nth-child(1) {
-      background-color: transparent;
-      color: $text-first;
-      font-weight: normal;
+    .btnWrapperCancel {
+      position: relative;
+      overflow: hidden;
+      width: 120px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      &:hover {
+      &:hover>.left {
+        animation: cancelBgcAnimationLeft 0.5s forwards;
+      }
+
+      &:hover>.right {
+        animation: cancelBgcAnimationRight 0.5s forwards;
+      }
+
+      div {
+        position: absolute;
+        width: 60px;
+        height: 40px;
         background-color: $worning;
-        color: $text-second;
+        z-index: 2;
+      }
+
+      .left {
+        top: 0;
+        left: -101%;
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+      }
+
+      .right {
+        top: 0;
+        right: -101%;
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
       }
     }
+
+    .btnWrapperSave {
+      position: relative;
+      overflow: hidden;
+      width: 120px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover>.left {
+        animation: saveBgcAnimationLeft 1s forwards;
+      }
+
+      &:hover>.right {
+        animation: saveBgcAnimationRight 1s forwards;
+      }
+
+      div {
+        position: absolute;
+        width: 60px;
+        height: 40px;
+        background-color: $text-first;
+        z-index: 2;
+      }
+
+      .left {
+        top: 0;
+        left: 0;
+        border-top-left-radius: $radius;
+        border-bottom-left-radius: $radius;
+      }
+
+      .right {
+        top: 0;
+        right: 0;
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
+      }
+    }
+
+    button {
+      @include button;
+      position: relative;
+      z-index: 3;
+    }
+
+
+  }
+
+  @media screen and (min-width: map-get($breakpoints, large)) {
+
+    .buttonsList {
+
+      .btnWrapperSave,
+      .btnWrapperCancel {
+        width: 159px;
+        height: 50px;
+        margin-top: 20px;
+
+        div {
+          width: 80px;
+          height: 50px;
+
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes saveBgcAnimationLeft {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -110%;
+  }
+}
+
+@keyframes saveBgcAnimationRight {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: -110%;
+  }
+}
+
+@keyframes cancelBgcAnimationLeft {
+  0% {
+    left: -101%;
+  }
+
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes cancelBgcAnimationRight {
+  0% {
+    right: -101%;
+  }
+
+  100% {
+    right: 0%;
   }
 }

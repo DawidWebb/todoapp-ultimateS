@@ -18,22 +18,23 @@
 
   .name {
     font-weight: 700;
+    flex-basis: 33%;
   }
 
   .create {
     font-style: italic;
+    flex-basis: 33%;
   }
 
   .details {
     display: flex;
     flex-direction: column;
 
-
   }
 
 
   @media screen and (min-width: map-get($breakpoints, medium)) {
-    padding: 5px;
+
 
     p {
       font-size: $xs-fz;
