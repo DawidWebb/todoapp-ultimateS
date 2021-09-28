@@ -31,39 +31,32 @@ const TaskPage = () => {
     }
   }, [sortMethod]);
 
+  const [listName, setListName] = useState("");
+
   const listsViev = !tasksList.length
     ? ""
-    : tasksList.map((item) => <ListItem key={item.id} item={item} />);
-
-  const [listName, setListName] = useState(false);
+    : tasksList.map((item) => {
+        if (listName === "") {
+          return <ListItem key={item.id} item={item} />;
+        } else {
+          console.log(listName);
+          if (item.name.toLowerCase().includes(listName.toLowerCase())) {
+            console.log(item.name);
+            return <ListItem key={item.id} item={item} />;
+          }
+        }
+      });
 
   const handleOpenModal = () => {
     dispatch(editSet([]));
   };
 
   const handleSetListName = (e) => {
-    e.preventDefault();
     setListName(e.target.value);
   };
 
   const handleSearchList = (e) => {
     e.preventDefault();
-
-    const idToFind = tasksList.findIndex(
-      (list) => list.name === new RegExp(listName, "i")
-    );
-
-    const dataObj = {
-      jwt: login[0].jwt,
-      id: idToFind,
-    };
-    if (!listName) {
-      dispatch(getTasksList(dataObj.jwt));
-      return;
-    } else {
-      // dispatch(getOneListByName(dataObj));
-      console.log(dataObj);
-    }
   };
 
   return (
