@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addLogin } from "../../data/actions";
 import { Link } from "react-router-dom";
 import { Button } from "../../components";
