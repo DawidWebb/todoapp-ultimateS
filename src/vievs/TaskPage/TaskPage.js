@@ -39,7 +39,7 @@ const TaskPage = () => {
         if (listName === "") {
           return <ListItem key={item.id} item={item} />;
         } else {
-    
+          console.log(listName);
           if (item.name.toLowerCase().includes(listName.toLowerCase())) {
             console.log(item.name);
             return <ListItem key={item.id} item={item} />;
