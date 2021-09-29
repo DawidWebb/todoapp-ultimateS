@@ -112,23 +112,27 @@
 
   @media screen and (orientation: landscape) {
     .insideBox {
-      height: 70vh;
+      height: 550px;
     }
   }
 
   @media screen and (min-width: map-get($breakpoints, large)) {
     .insideBox {
-      width: 45%;
+      width: 35%;
       justify-content: flex-start;
 
       h2 {
-        margin-top: 30px;
-        margin-bottom: 10vh;
+        margin-top: 20px;
+        margin-bottom: 80px;
         font-size: $xl-fz*1.3;
       }
 
       form {
-        height: 200px;
+        height: 180px;
+
+        input {
+          margin-bottom: 20px;
+        }
 
         .btnWrapper {
           width: 158px;
@@ -136,7 +140,7 @@
 
           div {
             width: 80px;
-            height: 50px;
+            height: 100%;
           }
         }
       }
