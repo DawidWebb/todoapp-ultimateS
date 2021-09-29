@@ -1,17 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  editSet,
-  getOneListByName,
-  getTasksList,
-  sortTasksList,
-  reverseTasksList,
-} from "../../data/actions";
+import { editSet, sortTasksList, reverseTasksList } from "../../data/actions";
 import { ListItem } from "../../components";
 import styles from "./taskPage.module.scss";
 
 const TaskPage = () => {
-  const login = useSelector((store) => store.login);
   const tasksList = useSelector((store) => store.list);
 
   const dispatch = useDispatch();
@@ -29,19 +22,19 @@ const TaskPage = () => {
     if (sortMethod === "sort") {
       dispatch(sortTasksList());
     }
-  }, [sortMethod]);
+  }, [sortMethod, dispatch]);
 
   const [listName, setListName] = useState("");
 
   const listsViev = !tasksList.length
     ? ""
-    : tasksList.map((item) => {
+    : // eslint-disable-next-line array-callback-return
+      tasksList.map((item) => {
         if (listName === "") {
           return <ListItem key={item.id} item={item} />;
         } else {
-          console.log(listName);
+
           if (item.name.toLowerCase().includes(listName.toLowerCase())) {
-            console.log(item.name);
             return <ListItem key={item.id} item={item} />;
           }
         }
