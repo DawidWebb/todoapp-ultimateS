@@ -1,9 +1,14 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-
+import { useSelector } from "react-redux";
 import styles from "./modal.module.scss";
 
 function Modal({ children, isModalOpen, handleOnCloseModal }) {
+  const spinner = useSelector((store) => store.spinner);
+  const task = useSelector((store) => store.task[0].isModalOpen);
+
+  console.log(spinner, task);
+
   const modalRef = useRef(null);
   const previousActiveElement = useRef(null);
 
@@ -42,7 +47,11 @@ function Modal({ children, isModalOpen, handleOnCloseModal }) {
   };
 
   return createPortal(
-    <div className={styles.modal} ref={modalRef} onClick={handleOutsideClick}>
+    <div
+      className={styles.modal}
+      ref={modalRef}
+      onClick={spinner || task ? null : handleOutsideClick}
+    >
       <div className={styles.wrapper}>{children}</div>
     </div>,
     document.querySelector("#modal")

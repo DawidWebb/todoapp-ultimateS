@@ -17,7 +17,7 @@ export const addUser = (data) => async (dispatch) => {
   });
   const status = orderRes.status;
   const content = await orderRes.json();
-  console.log(status, content);
+
   if (status === 200) {
     dispatch({
       type: ADD_USER,

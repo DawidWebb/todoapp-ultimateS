@@ -14,6 +14,7 @@ export const addLogin = (data) => async (dispatch) => {
   dispatch(addSpinner());
   const orderRes = await fetch(baseURL, {
     method: "POST",
+
     headers: {
       accept: "application/json",
       "Content-Type": "application/json",
@@ -36,7 +37,7 @@ export const addLogin = (data) => async (dispatch) => {
     dispatch(timeoutShowTask(content.error));
   } else {
     dispatch(removeSpinner());
-    dispatch(timeoutShowTask(content.error));
+    dispatch(timeoutShowTask("Login or password incorrect"));
   }
 };
 
