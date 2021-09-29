@@ -14,6 +14,7 @@ export const addLogin = (data) => async (dispatch) => {
   dispatch(addSpinner());
   const orderRes = await fetch(baseURL, {
     method: "POST",
+    mode: "cors",
     headers: {
       accept: "application/json",
       "Content-Type": "application/json",
